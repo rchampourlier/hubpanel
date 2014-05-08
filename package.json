@@ -1,0 +1,22 @@
+{
+  "name": "mixhub",
+  "version": "0.0.0",
+  "description": "Analytics for Github through Mixpanel",
+  "main": "app.js",
+  "scripts": {
+    "start": "coffee app.coffee -n",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "analytics",
+    "github",
+    "mixpanel"
+  ],
+  "dependencies": {
+    "express": "latest",
+    "mixpanel": "latest",
+    "coffee-script": "latest"
+  },
+  "author": "Romain Champourlier <romain@softr.li> (http://www.softr.li/)",
+  "license": "ISC"
+}
