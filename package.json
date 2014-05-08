@@ -13,7 +13,9 @@
     "mixpanel"
   ],
   "dependencies": {
+    "lodash": "latest",
     "express": "latest",
+    "body": "latest",
     "mixpanel": "latest",
     "coffee-script": "latest"
   },
