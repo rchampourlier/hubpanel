@@ -1,17 +1,21 @@
 {
-  "name": "mixhub",
+  "name": "hubpanel",
   "version": "0.0.0",
   "description": "Analytics for Github through Mixpanel",
   "main": "app.js",
   "scripts": {
     "start": "coffee app.coffee -n",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine-node --coffee spec/"
   },
   "keywords": [
     "analytics",
     "github",
     "mixpanel"
   ],
+  "devDependencies": {
+    "jasmine-node": "latest",
+    "request": "latest"
+  },
   "dependencies": {
     "lodash": "latest",
     "express": "latest",

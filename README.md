@@ -23,6 +23,11 @@ Test for yourself and share!
 
     MIXPANEL_PROJECT_ID=<enter yours> nodemon app.coffee
 
+### Running tests
+
+    npm test
+    jasmine-node --coffee test-spec.coffee
+
 ### Deploying to Heroku
 
     heroku create <your hubpanel name>
