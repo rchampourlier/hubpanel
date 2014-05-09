@@ -22,7 +22,7 @@ describe 'github-extract', ->
     describe 'push event', ->
       it 'should return the appropriate properties', ->
         body = _.extend baseBody,
-          ref: 'ref/heads/test-ref'
+          ref: 'refs/heads/test-ref'
           size: 'test-size'
           pusher:
             name: 'test-user'

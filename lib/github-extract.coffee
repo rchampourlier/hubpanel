@@ -8,7 +8,7 @@ baseProperties = (body) ->
 
 pushProperties = (body) ->
   {
-    ref:   body.ref.replace 'ref/heads/', ''
+    ref:   body.ref.replace 'refs/heads/', ''
     size:  body.size
     user:  body.pusher.name
   }
