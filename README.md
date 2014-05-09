@@ -26,7 +26,6 @@ Test for yourself and share!
 ### Running tests
 
     npm test
-    jasmine-node --coffee test-spec.coffee
 
 ### Deploying to Heroku
 

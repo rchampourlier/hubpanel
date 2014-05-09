@@ -1,4 +1,4 @@
-testTrack = ->
+logTrack = ->
 
   data = {}
 
@@ -7,4 +7,4 @@ testTrack = ->
     data.properties = eventProperties
     console.log 'test: %s %j', eventType, eventProperties
 
-module.exports = testTrack
+module.exports = logTrack

@@ -1,5 +1,4 @@
 _ = require 'lodash'
-track = require '../lib/test-track'
 githubExtract = require '../lib/github-extract'
 
 baseBody =
