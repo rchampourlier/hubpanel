@@ -7,18 +7,16 @@ baseProperties = (body) ->
   }
 
 pushProperties = (body) ->
-  {
+  _.extend baseProperties(body),
     ref:   body.ref.replace 'refs/heads/', ''
     size:  body.size
     user:  body.pusher.name
-  }
 
 commitCommentProperties = (body) ->
-  {
+  _.extend baseProperties(body),
     user:       body.comment.user.login
     size:       body.comment.body.length
     creation:   body.created_at
-  }
 
 githubExtract =
 
@@ -27,12 +25,12 @@ githubExtract =
 
   eventProperties: (type, body) ->
     if body?
-      properties = switch type
-        when 'test_event' then {}
-        when 'push' then pushProperties(body)
+      switch type
+        when 'test_event'     then {}
+        when 'ping'           then {}
+        when 'push'           then pushProperties(body)
         when 'commit_comment' then commitCommentProperties(body)
         else undefined
-      _.extend(properties, baseProperties(body))
     else
       {}
 

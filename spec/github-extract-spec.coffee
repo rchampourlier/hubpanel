@@ -19,8 +19,15 @@ describe 'github-extract', ->
 
   describe 'eventProperties', ->
 
+    describe 'ping event', ->
+      it 'should return no properties', ->
+        body =
+          hook_id: '123456'
+          zen: 'Some obscure zen thought'
+        expect(githubExtract.eventProperties('ping', body)).toEqual {}
+
     describe 'push event', ->
-      it 'should return the appropriate properties', ->
+      it 'should return the expected properties', ->
         body = _.extend baseBody,
           ref: 'refs/heads/test-ref'
           size: 'test-size'
@@ -34,7 +41,7 @@ describe 'github-extract', ->
           user: 'test-user'
 
     describe 'commit comment event', ->
-      it 'should return the appropriate properties', ->
+      it 'should return the expected properties', ->
         body = _.extend baseBody,
           created_at: 'test-creation'
           comment:
