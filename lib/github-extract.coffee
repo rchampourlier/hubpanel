@@ -1,37 +1,53 @@
 _ = require 'lodash'
+utils = require './github-extract-utils'
 
-baseProperties = (body) ->
-  {
-    owner:  body.repository.owner.login
-    repo:  body.repository.name    
-  }
+pingExtract = ->
+  utils.extract 'ping', {}
 
-pushProperties = (body) ->
-  _.extend baseProperties(body),
-    ref:   body.ref.replace 'refs/heads/', ''
-    size:  body.size
-    user:  body.pusher.name
+pushExtract = (body) ->
+  ref         = utils.baseRef(body.ref)
+  repo        = body.repository.name
+  repo_owner  = body.repository.owner.name
+  utils.extract 'push',
+    repo:         repo
+    repo_owner:   repo_owner
+    distinct_id:  utils.distinctId(repo, repo_owner, ref)
+    ref:          ref
+    user:         body.pusher.name
 
-commitCommentProperties = (body) ->
-  _.extend baseProperties(body),
-    user:       body.comment.user.login
-    size:       body.comment.body.length
-    creation:   body.created_at
+pullRequestExtract = (body) ->
+  ref         = body.pull_request.head.ref
+  repo        = body.repository.name
+  repo_owner  = body.repository.owner.login
+  utils.extract 'pull_request_' + body.action,
+    repo:         repo
+    repo_owner:   repo_owner
+    distinct_id:  utils.distinctId(repo, repo_owner, ref)
+    ref:          ref
+    user:         body.pull_request.user.login
+    base_ref:     body.pull_request.base.ref
 
-githubExtract =
+commitCommentExtract = (body) ->
+  repo        = body.repository.name
+  repo_owner  = body.repository.owner.login
+  extract = utils.extract 'commit_comment',
+    #distinct_id:  utils.distinctId(repo, repo_owner, ref) # ref N/A
+    repo:             repo
+    repo_owner:       repo_owner
+    message_length:   body.comment.body.length
+    user:             body.comment.user.login
+  extract
 
-  eventType: (req) ->
-    req.get 'X-GitHub-Event'
-
-  eventProperties: (type, body) ->
-    if body?
-      switch type
-        when 'test_event'     then {}
-        when 'ping'           then {}
-        when 'push'           then pushProperties(body)
-        when 'commit_comment' then commitCommentProperties(body)
-        else undefined
-    else
-      {}
+githubExtract = (req, body) ->
+  githubType = req.get 'X-GitHub-Event'
+  if body?
+    switch githubType
+      when 'ping'           then pingExtract()
+      when 'push'           then pushExtract(body)
+      when 'pull_request'   then pullRequestExtract(body)
+      when 'commit_comment' then commitCommentExtract(body)
+      else {}
+  else
+    {}
 
 module.exports = githubExtract

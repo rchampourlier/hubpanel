@@ -3,9 +3,8 @@ githubExtract = require './github-extract'
 
 githubWebhook = (track, req, callback) ->
   jsonBody req, null, (err, body) ->
-    eventType = githubExtract.eventType(req)
-    eventProperties = githubExtract.eventProperties(eventType, body)
-    track eventType, eventProperties
+    extract = githubExtract(req, body)
+    track extract.eventType, extract.eventProperties
     callback()
 
 module.exports = githubWebhook

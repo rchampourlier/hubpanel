@@ -36,15 +36,8 @@ describe 'POST /github/events', ->
         repository:
           owner:
             login: 'test-owner'
-          name: 'test-repo'
+          name: 'test-repo-owner'
       post '/github/events', data, (error, response, body) ->
         expect(body).toEqual({"status": "ok"})
         done()
-
-# Payload examples
-
-# PING
-# {
-#   "zen": "Avoid administrative distraction.",
-#   "hook_id": 2228824
-# }
+        
