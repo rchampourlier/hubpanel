@@ -1,0 +1,93 @@
+{
+  "ref": "refs/heads/jt-803-join-events-buttons",
+  "after": "485e7fa47f1b8b7a5e37c822e8d952276474f0e8",
+  "before": "aaa6216f0c7f9d38b40684f509eb8655eef320d3",
+  "created": false,
+  "deleted": false,
+  "forced": false,
+  "compare": "https://github.com/jobteaser/jobteaser/compare/aaa6216f0c7f...485e7fa47f1b",
+  "commits": [
+    {
+      "id": "485e7fa47f1b8b7a5e37c822e8d952276474f0e8",
+      "distinct": true,
+      "message": "Event subscription link changes only for chats",
+      "timestamp": "2014-05-09T12:00:18+02:00",
+      "url": "https://github.com/jobteaser/jobteaser/commit/485e7fa47f1b8b7a5e37c822e8d952276474f0e8",
+      "author": {
+        "name": "Bakari Sumaila",
+        "email": "bakari.sumaila@jobteaser.com",
+        "username": "bakster"
+      },
+      "committer": {
+        "name": "Bakari Sumaila",
+        "email": "bakari.sumaila@jobteaser.com",
+        "username": "bakster"
+      },
+      "added": [
+
+      ],
+      "removed": [
+
+      ],
+      "modified": [
+        "app/presenters/event_subscribe_link.rb",
+        "spec/presenters/event_subscribe_link_spec.rb"
+      ]
+    }
+  ],
+  "head_commit": {
+    "id": "485e7fa47f1b8b7a5e37c822e8d952276474f0e8",
+    "distinct": true,
+    "message": "Event subscription link changes only for chats",
+    "timestamp": "2014-05-09T12:00:18+02:00",
+    "url": "https://github.com/jobteaser/jobteaser/commit/485e7fa47f1b8b7a5e37c822e8d952276474f0e8",
+    "author": {
+      "name": "Bakari Sumaila",
+      "email": "bakari.sumaila@jobteaser.com",
+      "username": "bakster"
+    },
+    "committer": {
+      "name": "Bakari Sumaila",
+      "email": "bakari.sumaila@jobteaser.com",
+      "username": "bakster"
+    },
+    "added": [
+
+    ],
+    "removed": [
+
+    ],
+    "modified": [
+      "app/presenters/event_subscribe_link.rb",
+      "spec/presenters/event_subscribe_link_spec.rb"
+    ]
+  },
+  "repository": {
+    "id": 5999492,
+    "name": "jobteaser",
+    "url": "https://github.com/jobteaser/jobteaser",
+    "description": "The source for jobteaser.com",
+    "watchers": 1,
+    "stargazers": 1,
+    "forks": 0,
+    "fork": false,
+    "size": 208216,
+    "owner": {
+      "name": "jobteaser",
+      "email": "nicolas.lombard@jobteaser.com"
+    },
+    "private": true,
+    "open_issues": 6,
+    "has_issues": true,
+    "has_downloads": true,
+    "has_wiki": true,
+    "language": "Ruby",
+    "created_at": 1348847603,
+    "pushed_at": 1399629627,
+    "master_branch": "develop"
+  },
+  "pusher": {
+    "name": "bakster",
+    "email": "bakster@users.noreply.github.com"
+  }
+}
