@@ -5,6 +5,6 @@ logTrack = ->
   track = (eventType, eventProperties) ->
     data.type = eventType
     data.properties = eventProperties
-    console.log 'test: %s %j', eventType, eventProperties
+    console.log 'log: %s %j', eventType, eventProperties
 
 module.exports = logTrack
